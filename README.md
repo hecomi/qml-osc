@@ -16,8 +16,9 @@ License
 Usage
 -----
 1. Include ```osc.pri``` into your qt project.
+
 ```
-include(../osc/osc.pri) # add
+include(../osc/osc.pri)
 
 folder_01.source = qml/CustomElementsTest
 folder_01.target = qml
@@ -26,6 +27,7 @@ DEPLOYMENTFOLDERS = folder_01
 ```
 
 2. Register custome qml in your ```main.cpp```.
+
 ```cpp
 #include <QtGui/QGuiApplication>
 #include "qtquick2applicationviewer.h"
@@ -49,6 +51,7 @@ int main(int argc, char *argv[])
 ```
 
 3. Using custome QML named ```OSCReceiver``` and ```OSCSender``` in your qml files.
+
 ```javascript
 import QtQuick 2.0
 import OSC 1.0
