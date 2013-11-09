@@ -17,9 +17,8 @@ Usage
 -----
 1. Include ```osc.pri``` into your qt project.
 ```
-include(../osc/osc.pri)
+include(../osc/osc.pri) # add
 
-# Add more folders to ship with the application, here
 folder_01.source = qml/CustomElementsTest
 folder_01.target = qml
 DEPLOYMENTFOLDERS = folder_01
