@@ -3,7 +3,7 @@ qml-osc
 
 Overview
 --------
-- QML custome element that can handle OSC message.
+- QML custom element that can handle OSC message.
 
 Libraries
 ---------
@@ -26,7 +26,7 @@ DEPLOYMENTFOLDERS = folder_01
 ...
 ```
 
-2. Register custome qml in your ```main.cpp```.
+2. Register custom qml in your ```main.cpp```.
 
 ```cpp
 #include <QtGui/QGuiApplication>
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-3. Using custome QML named ```OSCReceiver``` and ```OSCSender``` in your qml files.
+3. Using custom QML named ```OSCReceiver``` and ```OSCSender``` in your qml files.
 
 ```javascript
 import QtQuick 2.0
