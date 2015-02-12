@@ -2,7 +2,7 @@
 #define OSC_SENDER_H
 
 #include <QQuickItem>
-#include "ip/UdpSocket.h"
+#include "oscpack/ip/UdpSocket.h"
 
 
 class OSCSender : public QQuickItem

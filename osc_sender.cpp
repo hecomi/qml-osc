@@ -1,5 +1,5 @@
 #include "osc_sender.h"
-#include "osc/OscOutboundPacketStream.h"
+#include "oscpack/osc/OscOutboundPacketStream.h"
 
 
 namespace {
