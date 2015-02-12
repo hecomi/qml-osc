@@ -3,6 +3,7 @@ include(osc.pri)
 TEMPLATE = lib
 TARGET = OSC
 CONFIG += qt plugin
+QMAKE_CXXFLAGS += -std=c++11
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = OSC
