@@ -13,7 +13,7 @@ class OSCSender : public QQuickItem
 
 public:
     explicit OSCSender(QQuickItem *parent = 0);
-    Q_INVOKABLE void send(const QString& address, const QString& param);
+    Q_INVOKABLE void send(const QString& address, const QList<QVariant>& param);
     QString getIp() const;
     void setIp(const QString& ip);
     int getPort() const;

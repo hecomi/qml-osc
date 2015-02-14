@@ -35,7 +35,7 @@ public slots:
     void start();
 
 signals:
-    void message(const QString& address, const QString& msg);
+    void message(const QString& address, const QList<QVariant>& msg);
 
 private:
     MyPacketListener listener_;
@@ -60,10 +60,10 @@ public:
     Q_INVOKABLE void run();
 
 public slots:
-    void onMessage(const QString& address, const QString& msg);
+    void onMessage(const QString& address, const QList<QVariant>& msg);
 
 signals:
-    void message(const QString& address, const QString& msg);
+    void message(const QString& address, const QList<QVariant>& msg);
     void error(const QString& msg);
     void start();
     void portChanged();

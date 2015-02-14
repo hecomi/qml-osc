@@ -49,15 +49,29 @@ int OSCSender::getPort() const
 }
 
 
-void OSCSender::send(const QString &address, const QString &param)
+void OSCSender::send(const QString &address, const QList<QVariant> &param)
 {
     char buffer[OUTPUT_BUFFER_SIZE];
     osc::OutboundPacketStream p( buffer, OUTPUT_BUFFER_SIZE );
 
     p << osc::BeginBundleImmediate
-      << osc::BeginMessage(address.toStdString().c_str())
-      << param.toStdString().c_str()
-      << osc::EndMessage;
+      << osc::BeginMessage(address.toStdString().c_str());
+    for (int i = 0; i < param.size(); ++i) {
+        switch (param.at(i).type()) {
+            case QVariant::Double:
+                p << param.at(i).toFloat();
+                break;
+            case QVariant::Int:
+                p << param.at(i).toInt();
+                break;
+            case QVariant::Bool:
+                p << param.at(i).toBool();
+                break;
+            default:
+                p << param.at(i).toString().toStdString().c_str();
+        }
+    }
+    p << osc::EndMessage;
 
     socket_.Send(p.Data(), p.Size());
 }
