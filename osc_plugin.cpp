@@ -7,6 +7,6 @@
 void OSCPlugin::registerTypes(const char *uri)
 {
     // @uri OSC
-    qmlRegisterType<OSCReceiver>(uri, 1, 0, "OSCReceiver");
-    qmlRegisterType<OSCSender>(uri, 1, 0, "OSCSender");
+    qmlRegisterType<OSCReceiver>(uri, 1, 1, "OSCReceiver");
+    qmlRegisterType<OSCSender>(uri, 1, 1, "OSCSender");
 }

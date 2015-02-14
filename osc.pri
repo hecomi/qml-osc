@@ -10,8 +10,10 @@ HEADERS += \
 	$$PWD/osc_sender.h \
 	$$PWD/osc_receiver.h
 
-QMAKE_INCDIR += $$PWD/include
-QMAKE_LIBDIR += $$PWD/lib
+exists( $$PWD/oscpack/liboscpack.* ) {
+	QMAKE_LIBDIR += $$PWD/oscpack
+}
+
 QMAKE_LIBS   += -loscpack
 
 OTHER_FILES = qmldir

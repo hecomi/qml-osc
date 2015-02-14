@@ -16,9 +16,20 @@ void MyPacketListener::ProcessMessage(const osc::ReceivedMessage &m, const IpEnd
     (void) remoteEndpoint;
 
     try {
-        auto args = m.ArgumentStream();
-        const char* msg;
-        args >> msg >> osc::EndMessage;
+        QList<QVariant> msg;
+        osc::ReceivedMessage::const_iterator arg = m.ArgumentsBegin();
+        while (arg != m.ArgumentsEnd()) {
+            if ((arg)->IsFloat()) {
+                msg.append((arg)->AsFloat());
+            } else if ((arg)->IsInt32()) {
+                msg.append((arg)->AsInt32());
+            } else if ((arg)->IsBool()) {
+                msg.append((arg)->AsBool());
+            } else {
+                msg.append((arg)->AsString());
+            }
+            arg++;
+        }
         emit parent_->message(m.AddressPattern(), msg);
     } catch (const osc::Exception& e) {
         std::cerr << "[OSCReceiver] Error while parsing process message." << std::endl;
@@ -78,7 +89,7 @@ void OSCReceiver::run()
 }
 
 
-void OSCReceiver::onMessage(const QString &address, const QString &msg)
+void OSCReceiver::onMessage(const QString &address, const QList<QVariant> &msg)
 {
     emit message(address, msg);
 }
