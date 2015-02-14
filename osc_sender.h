@@ -8,24 +8,24 @@
 class OSCSender : public QQuickItem
 {
     Q_OBJECT
-    Q_PROPERTY(QString ip READ getIp WRITE setIp NOTIFY ipChanged)
+    Q_PROPERTY(QString host READ getHost WRITE setHost NOTIFY hostChanged)
     Q_PROPERTY(int port READ getPort WRITE setPort NOTIFY portChanged)
 
 public:
     explicit OSCSender(QQuickItem *parent = 0);
     Q_INVOKABLE void send(const QString& address, const QList<QVariant>& param);
-    QString getIp() const;
-    void setIp(const QString& ip);
+    QString getHost() const;
+    void setHost(const QString& host);
     int getPort() const;
     void setPort(int port);
 
 signals:
     void error(const QString& msg);
-    void ipChanged();
+    void hostChanged();
     void portChanged();
 
 private:
-    std::string ip_;
+    std::string host_;
     int port_;
     UdpTransmitSocket socket_;
 };
